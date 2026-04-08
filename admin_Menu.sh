@@ -25,6 +25,30 @@ function main_Menu()
 
 
 #Disk Management
+function Disk_management()
+{
+    select option in "Display device information" "Display disk partition information" "Display block device information" "Display mounted disk information" "Return to Main Menu"
+    do
+        case $option in
+            "Display device information" )
+                cd /dev
+                ls -l
+                Disk_management;;
+            "Display disk partition information" )
+                sudo fdisk -l
+                Disk_management;;
+            "Display block device information" )
+                lsblk
+                Disk_management;;
+            "Display mounted disk information" )
+                df sdb
+                Disk_management;;
+            "Return to Main Menu" )
+                echo "main menu"
+                exit 0;;
+        esac
+done
+}
 
 
 #File Management
