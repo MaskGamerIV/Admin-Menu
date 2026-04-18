@@ -13,12 +13,12 @@ function main_Menu()
     do
         case $option in
             "Disk Management") 
-                Disk_managment;;
+                Disk_management;;
             "File Management") 
                 file_Management;;
             "Network Management") 
                 echo "Network Management";;
-            "Process Managment") 
+            "Process Management") 
                 echo "Process Management";;
             "User Account Management") 
                 echo "User Account Management";;
@@ -43,8 +43,7 @@ function Disk_management()
     do
         case $option in
             "Display device information" )
-                cd /dev
-                ls -l
+                ls -l /dev
                 Disk_management;;
             "Display disk partition information" )
                 sudo fdisk -l
@@ -53,7 +52,7 @@ function Disk_management()
                 lsblk
                 Disk_management;;
             "Display mounted disk information" )
-                df sdb
+                df -h
                 Disk_management;;
             "Return to Main Menu" )
                 echo ""
