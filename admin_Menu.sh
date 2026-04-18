@@ -45,8 +45,7 @@ function Disk_management()
                 df sdb
                 Disk_management;;
             "Return to Main Menu" )
-                echo "main menu"
-                exit 0;;
+                main_Menu;;
         esac
 done
 }
