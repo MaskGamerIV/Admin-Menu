@@ -152,6 +152,45 @@ function file_Management()
 
 
 #Process Management
+function process_Management()
+{
+    echo ""
+    
+    echo "---------- Process Management ----------"
+
+    select option in "Display Process" "Display Process by usage" "Terminate a Process" "Display Disk Usage" "Display Free Disk Space" "Display System Uptime" "Return to Main Menu"
+    do
+        case $option in
+            "Display Process")
+                echo
+                ps aux
+                process_Management;;
+            "Display Process by usage")
+                echo
+                top
+                process_Management;;
+            "Terminate a Process")
+                echo
+                read -p "Enter the process ID (PID): " id
+                kill "$id"
+                process_Management;;
+            "Display Disk Usage")
+                echo
+                du -sh
+                process_Management;;
+            "Display Free Disk Space")
+                echo
+                df -h
+                process_Management;;
+            "Display System Uptime")
+                echo
+                uptime
+                process_Management;;
+            "Return to Main Menu")
+                main_Menu;;
+        esac
+    done
+}
 
 
 #User Account Management
