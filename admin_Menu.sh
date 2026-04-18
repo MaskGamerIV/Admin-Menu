@@ -12,14 +12,22 @@ function main_Menu()
     select option in "Disk Management" "File Management" "Network Management" "Process Management" "User Account Management" "Utilities" "Exit Program"
     do
         case $option in
-            "Disk Management") echo "Disk Management";;
-            "File Management") echo "File Management";;
-            "Network Management") echo "Network Management";;
-            "Process Managment") echo "Process Management";;
-            "User Account Management") echo "User Account Management";;
-            "Utilities") echo "Utilities";;
-            "Exit Program") echo "Exiting program..."
-            exit 0;;
+            "Disk Management") 
+                echo ""
+                Disk_managment;;
+            "File Management") 
+                echo "File Management";;
+            "Network Management") 
+                echo "Network Management";;
+            "Process Managment") 
+                echo "Process Management";;
+            "User Account Management") 
+                echo "User Account Management";;
+            "Utilities") 
+                echo "Utilities";;
+            "Exit Program") 
+                echo "Exiting program..."
+                exit 0;;
         esac
     done
 }
@@ -28,6 +36,8 @@ function main_Menu()
 #Disk Management
 function Disk_management()
 {
+    echo "---------- Disk Management ----------"
+
     select option in "Display device information" "Display disk partition information" "Display block device information" "Display mounted disk information" "Return to Main Menu"
     do
         case $option in
