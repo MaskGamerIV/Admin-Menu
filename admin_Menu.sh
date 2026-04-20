@@ -149,7 +149,44 @@ function file_Management()
 
 
 #Network Management
+function Network_management()
+{
+    select option in "ifconfig" "ping" "traceroute" "nslookup" "View Network Interfaces" "View Network Routing Table" "View current system users" "View client machine information" "Return to main menu"
+    do    
+        case $option in 
+            "ifconfig" )
+                ifconfig
+                ;;
+            "ping" )
+                ping -c 1 -i 1 -w 2 172.168.12.5
+                ;;
+            "traceroute" )
+                traceroute -d -e 172.168.12.5
+                ;;
+            "nslookup")
+                read -p "Enter domain name (i.e. google.com): " domain
+                nslookup $domain             
+                ;;
+            "View Network Interfaces" )
+                netstat -i    
+                ;;
+            "View Network Routing Table" )
+                netstat -r             
+                ;;
+            "View current system users" )
+                finger     
+                ;;
+            "View client machine information" )
+                uname -a        
+                ;;
+            "Return to main menu" )
+                break
+                ;;
+        esac
 
+    done
+
+}
 
 #Process Management
 function process_Management()
@@ -194,7 +231,51 @@ function process_Management()
 
 
 #User Account Management
+function UserAccount_Management()
+{
+    echo "script start"
+    select option in "Add user" "Delete user" "Lock user password" "Get information on user" "Add group" "Delete group" "Find user" "Find group" "Return to main menu"
+    do
+    case $option in 
+        "Add user" )
+            read -p "enter username" username
+            sudo useradd $username
+            ;;
+        "Delete user" )
+            read -p "who would you like to remove?" username
+            sudo userdel "$username"
+            ;;
+        "Lock user password" )
+           read -p "enter user" username
+           sudo passwd -l  $username
+           ;;
+        "Get information on user" )
+            read -p "enter user" username
+            sudo id $username
+            ;;
+        "Add group" )
+            read -p "enter group name" groupname
+            sudo groupadd $groupname
+            ;;
+        "Delete group" )
+            read -p "enter group name" groupname
+            sudo groupdel $groupname
+            ;;
+        "Find user" )
+            read -p "enter user" username
+            finger $username
+            ;;
 
+        "Find group" )
+            read -p "what group do you want me to find?" groupname
+            grep $groupname /etc/group
+            ;;
+        "Return to main menu" )
+            break
+            ;;
+        esac
+    done
+}
 
 #Utilities
 
