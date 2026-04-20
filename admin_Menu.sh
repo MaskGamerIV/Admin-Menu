@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #Ernest La Mertha, Mark Higdon, CI 201 Section 01
-#This program
+#This program creates a menu for the user to access different management menus
 
 
 #Main Menu
